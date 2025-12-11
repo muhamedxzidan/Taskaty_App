@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:taskaty_app/screens/auth_screen.dart';
@@ -12,40 +14,39 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    if (!mounted) {
+      return;
+    }
+    homePage();
     super.initState();
-
-    Future.delayed(const Duration(seconds: 7), () {
-      if (mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const AuthScreen()),
-        );
-      }
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Lottie.asset("assets/images/splash_screen.json"),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.asset("assets/images/task2.json", width: 200),
 
-            const SizedBox(height: 20),
+              Lottie.asset("assets/images/task1.json"),
 
-            const Text(
-              "Taskaty",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-            ),
-
-            const SizedBox(height: 8),
-
-            const Text("It's Time To Get Organized"),
-          ],
+              const Text("It's Time To Get Organized"),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  void homePage() {
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const AuthScreen()),
+      );
+    });
   }
 }
