@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 
 class ButoomWidgets extends StatelessWidget {
   final String text;
-  final Function() onPressed;
+  final VoidCallback? onPressed;
   const ButoomWidgets({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: onPressed, child: Text(text));
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.deepPurple,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
+      child: Text(text, style: const TextStyle(color: Colors.white)),
+    );
   }
 }
