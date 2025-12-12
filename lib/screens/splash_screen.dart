@@ -27,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Lottie.asset("assets/images/task2.json", width: 200),
-
               Lottie.asset("assets/images/task1.json"),
 
               const Text("It's Time To Get Organized"),

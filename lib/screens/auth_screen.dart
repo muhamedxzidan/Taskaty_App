@@ -22,6 +22,11 @@ class _AuthScreenState extends State<AuthScreen> {
     setState(() {});
   }
 
+  void pichImageFromCamera() async {
+    image = await picker.pickImage(source: ImageSource.camera);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +44,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 iconColor: Colors.deepPurple,
               ),
               child: AvatarWidget(
-                backgroundImage: FileImage(File(image!.path)),
+                backgroundImage: FileImage(File(image?.path ?? "")),
                 size: 190,
                 radius: 120,
                 color: Colors.black,
@@ -55,7 +60,27 @@ class _AuthScreenState extends State<AuthScreen> {
               },
             ),
             const SizedBox(height: 20),
-            ButoomWidgets(text: "Upload From Camera", onPressed: () {}),
+            ButoomWidgets(
+              text: "Upload From Camera",
+              onPressed: () {
+                pichImageFromCamera();
+              },
+            ),
+            const SizedBox(height: 20),
+
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Your Name",
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            ButoomWidgets(text: "Register", onPressed: () {}),
           ],
         ),
       ),
