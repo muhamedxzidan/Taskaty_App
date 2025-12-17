@@ -12,5 +12,8 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": "explicit",
         "source.organizeImports": "explicit"
+    },
+    "dart.previewFlutterUiGuides": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true
     }
-}

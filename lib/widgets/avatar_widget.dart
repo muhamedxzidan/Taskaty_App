@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AvatarWidget extends StatelessWidget {
-  final IconData? icona;
+  final IconData? icon;
   final double size;
   final double radius;
   final Color color;
@@ -9,7 +9,7 @@ class AvatarWidget extends StatelessWidget {
   final ImageProvider? backgroundImage;
   const AvatarWidget({
     super.key,
-    this.icona,
+    this.icon,
     required this.size,
     required this.radius,
     required this.color,
@@ -23,8 +23,8 @@ class AvatarWidget extends StatelessWidget {
       radius: radius,
       backgroundColor: color,
       backgroundImage: backgroundImage,
-      child: backgroundImage == null && icona != null
-          ? Icon(icona!, size: size, color: iconColor)
+      child: backgroundImage == null && icon != null
+          ? Icon(icon!, size: size, color: iconColor)
           : null,
     );
   }
