@@ -10,30 +10,29 @@ class DaysContenerWidget extends StatelessWidget {
   });
   final String days;
   final String number;
-  final MaterialColor color;
+  final Color color;
   final bool isActive;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Row(
+      child: Column(
         children: [
-          Column(
-            children: [
-              Text(number, style: const TextStyle(fontSize: 20)),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: isActive ? color : Colors.grey,
-                ),
-                height: 100,
-                width: 100,
-                child: Center(
-                  child: Text(days, style: const TextStyle(fontSize: 20)),
-                ),
-              ),
-            ],
+          Text(number, style: const TextStyle(fontSize: 20)),
+          const SizedBox(height: 5), // إضافة مسافة بسيطة بين الرقم واليوم
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: isActive
+                  ? color
+                  : const Color.fromARGB(255, 235, 209, 209),
+            ),
+            height: 80, // تقليل الارتفاع ليناسب التصميم
+            width: 70, // تحديد عرض ثابت بدلاً من double.infinity
+            child: Center(
+              child: Text(days, style: const TextStyle(fontSize: 14)),
+            ),
           ),
         ],
       ),

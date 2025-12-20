@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taskaty_app/widgets/avatar_widget.dart';
 import 'package:taskaty_app/widgets/butoom_widgets.dart';
 import 'package:taskaty_app/widgets/days_contener_widget.dart';
+import 'package:taskaty_app/widgets/task_contener.dart';
 
 // ignore: must_be_immutable
 class TasksScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class _TasksScreenState extends State<TasksScreen> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -73,19 +75,19 @@ class _TasksScreenState extends State<TasksScreen> {
               const Divider(thickness: 2, color: Colors.grey),
               Row(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "October 30, 2025",
-                          style: TextStyle(
+                          "${now.month}/${now.day}/${now.year}",
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
+                        const Text(
                           "Today",
                           style: TextStyle(
                             fontSize: 15,
@@ -105,77 +107,77 @@ class _TasksScreenState extends State<TasksScreen> {
               ),
               const SizedBox(height: 10),
 
-              Row(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        selectedDay = "saturday";
-                      });
-                    },
-                    child: DaysContenerWidget(
-                      days: "saturday",
-                      number: "1",
-                      color: selectedDay == "saturday"
-                          ? Colors.deepPurple
-                          : Colors.grey,
-                      isActive: selectedDay == "saturday",
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectedDay = "saturday";
+                        });
+                      },
+                      child: DaysContenerWidget(
+                        days: "${now.month}",
+                        number: "${now.day}",
+                        color: Colors.deepPurple,
+                        isActive: selectedDay == "saturday",
+                      ),
                     ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        selectedDay = "sunday";
-                      });
-                    },
-                    child: DaysContenerWidget(
-                      days: "sunday",
-                      number: "2",
-                      color: selectedDay == "sunday"
-                          ? Colors.deepPurple
-                          : Colors.grey,
-                      isActive: selectedDay == "sunday",
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectedDay = "sunday";
+                        });
+                      },
+                      child: DaysContenerWidget(
+                        days: "sunday",
+                        number: "2",
+                        color: Colors.deepPurple,
+                        isActive: selectedDay == "sunday",
+                      ),
                     ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        selectedDay = "monday";
-                      });
-                    },
-                    child: DaysContenerWidget(
-                      days: "monday",
-                      number: "3",
-                      color: selectedDay == "monday"
-                          ? Colors.deepPurple
-                          : Colors.grey,
-                      isActive: selectedDay == "monday",
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectedDay = "monday";
+                        });
+                      },
+                      child: DaysContenerWidget(
+                        days: "monday",
+                        number: "3",
+                        color: Colors.deepPurple,
+                        isActive: selectedDay == "monday",
+                      ),
                     ),
-                  ),
-                ],
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectedDay = "tuesday";
+                        });
+                      },
+                      child: DaysContenerWidget(
+                        days: "tuesday",
+                        number: "4",
+                        color: Colors.deepPurple,
+                        isActive: selectedDay == "tuesday",
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 10),
               Expanded(
                 child: ListView(
                   scrollDirection: Axis.vertical,
                   children: [
-                    Container(height: 70, width: 50, color: Colors.red),
                     const SizedBox(height: 10),
-                    Container(height: 50, width: 50, color: Colors.green),
-                    const SizedBox(height: 10),
-                    Container(height: 50, width: 50, color: Colors.blue),
-                    const SizedBox(height: 10),
-                    Container(height: 50, width: 50, color: Colors.yellow),
-                    const SizedBox(height: 10),
-                    Container(height: 50, width: 50, color: Colors.orange),
-                    const SizedBox(height: 10),
-                    Container(height: 50, width: 50, color: Colors.purple),
-                    const SizedBox(height: 10),
-                    Container(height: 50, width: 50, color: Colors.pink),
-                    const SizedBox(height: 10),
-                    Container(height: 50, width: 50, color: Colors.black),
-                    const SizedBox(height: 10),
-                    Container(height: 50, width: 50, color: Colors.white),
+                    TaskContener(
+                      title: "Flutter Task 1",
+                      time: "${now.hour.toString()}:${now.minute.toString()}",
+                      date: "2025-12-20",
+                      description: "Flutter Task 1",
+                    ),
                   ],
                 ),
               ),
