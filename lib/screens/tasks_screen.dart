@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskaty_app/screens/auth_screen.dart';
 import 'package:taskaty_app/widgets/avatar_widget.dart';
 import 'package:taskaty_app/widgets/butoom_widgets.dart';
 import 'package:taskaty_app/widgets/days_contener_widget.dart';
@@ -25,11 +26,11 @@ class _TasksScreenState extends State<TasksScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -60,14 +61,24 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                   Column(
                     children: [
-                      AvatarWidget(
-                        icon: Icons.person,
-                        size: 20,
-                        radius: 20,
-                        color: Colors.black,
-                        iconColor: Colors.deepPurple,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AuthScreen(),
+                            ),
+                          );
+                        },
+                        child: const AvatarWidget(
+                          icon: Icons.person,
+                          size: 20,
+                          radius: 20,
+                          color: Colors.black,
+                          iconColor: Colors.deepPurple,
+                        ),
                       ),
-                      Text("Zidan"),
+                      const Text("Zidan"),
                     ],
                   ),
                 ],
@@ -177,6 +188,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       time: "${now.hour.toString()}:${now.minute.toString()}",
                       date: "2025-12-20",
                       description: "Flutter Task 1",
+                      isDone: false,
                     ),
                     const SizedBox(height: 10),
                     TaskContener(
@@ -184,6 +196,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       time: "${now.hour.toString()}:${now.minute.toString()}",
                       date: "2025-12-20",
                       description: "Flutter Task 2",
+                      isDone: false,
                     ),
                     const SizedBox(height: 10),
                     TaskContener(
@@ -191,6 +204,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       time: "${now.hour.toString()}:${now.minute.toString()}",
                       date: "2025-12-20",
                       description: "Flutter Task 3",
+                      isDone: false,
                     ),
                     const SizedBox(height: 10),
                     TaskContener(
@@ -198,6 +212,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       time: "${now.hour.toString()}:${now.minute.toString()}",
                       date: "2025-12-20",
                       description: "Flutter Task 4",
+                      isDone: false,
                     ),
                     const SizedBox(height: 10),
                   ],

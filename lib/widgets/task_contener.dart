@@ -5,11 +5,14 @@ class TaskContener extends StatelessWidget {
   final String description;
   final String date;
   final String time;
+  final bool isDone;
+
   const TaskContener({
     required this.title,
     required this.description,
     required this.date,
     required this.time,
+    required this.isDone,
     super.key,
   });
 
@@ -20,27 +23,32 @@ class TaskContener extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: const Color.fromARGB(255, 146, 84, 84),
+        color: isDone ? Colors.green : const Color.fromARGB(255, 146, 84, 84),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
           children: [
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                const Icon(Icons.description, color: Colors.white, size: 20),
+
+                Text(date),
+                const Icon(Icons.access_time, color: Colors.white, size: 20),
+                Text(time),
+              ],
             ),
-
-            const Icon(Icons.description, color: Colors.white, size: 20),
-
-            Text(date),
-            const Icon(Icons.access_time, color: Colors.white, size: 20),
-            Text(time),
+            const Divider(thickness: 2, color: Colors.black),
           ],
         ),
       ),
