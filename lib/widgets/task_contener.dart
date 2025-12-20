@@ -5,14 +5,13 @@ class TaskContener extends StatelessWidget {
   final String description;
   final String date;
   final String time;
-  final bool isDone;
-
+  final Color color;
   const TaskContener({
     required this.title,
     required this.description,
     required this.date,
     required this.time,
-    required this.isDone,
+    required this.color,
     super.key,
   });
 
@@ -23,7 +22,7 @@ class TaskContener extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: isDone ? Colors.green : const Color.fromARGB(255, 146, 84, 84),
+        color: color,
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -48,7 +47,6 @@ class TaskContener extends StatelessWidget {
                 Text(time),
               ],
             ),
-            const Divider(thickness: 2, color: Colors.black),
           ],
         ),
       ),
