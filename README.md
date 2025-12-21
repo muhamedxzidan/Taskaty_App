@@ -14,8 +14,6 @@ A new Flutter project.
 
 
 
-Uploading WhatsApp Video 2025-12-12 at 11.02.19 PM.mp4…
-
 
 
 ## Getting Started
