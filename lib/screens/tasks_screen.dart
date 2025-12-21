@@ -143,7 +143,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       },
                       child: DaysContenerWidget(
                         days: "sunday",
-                        number: "2",
+                        number: "${now.day}",
                         color: Colors.deepPurple,
                         isActive: selectedDay == "sunday",
                       ),
@@ -156,7 +156,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       },
                       child: DaysContenerWidget(
                         days: "monday",
-                        number: "3",
+                        number: "${now.day}",
                         color: const Color.fromARGB(255, 235, 66, 117),
                         isActive: selectedDay == "monday",
                       ),
@@ -169,7 +169,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       },
                       child: DaysContenerWidget(
                         days: "tuesday",
-                        number: "4",
+                        number: "${now.day}",
                         color: const Color.fromARGB(255, 201, 190, 34),
                         isActive: selectedDay == "tuesday",
                       ),
@@ -201,7 +201,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       child: TaskContener(
                         title: "Flutter Task 1",
                         time: "${now.hour.toString()}:${now.minute.toString()}",
-                        date: "2025-12-20",
+                        date: "${now.year}-${now.month}-${now.day}",
                         description: "Flutter Task 1",
                         color: const Color.fromARGB(255, 60, 11, 194),
                       ),
@@ -225,7 +225,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       child: TaskContener(
                         title: "Flutter Task 2",
                         time: "${now.hour.toString()}:${now.minute.toString()}",
-                        date: "2025-12-20",
+                        date: "${now.year}-${now.month}-${now.day}",
                         description: "Flutter Task 2",
                         color: const Color.fromARGB(255, 60, 11, 194),
                       ),
@@ -249,7 +249,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       child: TaskContener(
                         title: "Flutter Task 3",
                         time: "${now.hour.toString()}:${now.minute.toString()}",
-                        date: "2025-12-20",
+                        date: "${now.year}-${now.month}-${now.day}",
                         description: "Flutter Task 3",
                         color: const Color.fromARGB(255, 228, 27, 151),
                       ),
@@ -273,7 +273,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       child: TaskContener(
                         title: "Flutter Task 4",
                         time: "${now.hour.toString()}:${now.minute.toString()}",
-                        date: "2025-12-20",
+                        date: "${now.year}-${now.month}-${now.day}",
                         description: "Flutter Task 4",
                         color: const Color.fromARGB(255, 201, 190, 34),
                       ),
