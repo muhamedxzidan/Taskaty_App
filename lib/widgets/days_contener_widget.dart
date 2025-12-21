@@ -20,7 +20,7 @@ class DaysContenerWidget extends StatelessWidget {
       child: Column(
         children: [
           Text(number, style: const TextStyle(fontSize: 20)),
-          const SizedBox(height: 5), // إضافة مسافة بسيطة بين الرقم واليوم
+          const SizedBox(height: 5),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -28,8 +28,8 @@ class DaysContenerWidget extends StatelessWidget {
                   ? color
                   : const Color.fromARGB(255, 235, 209, 209),
             ),
-            height: 80, // تقليل الارتفاع ليناسب التصميم
-            width: 70, // تحديد عرض ثابت بدلاً من double.infinity
+            height: 80,
+            width: double.infinity,
             child: Center(
               child: Text(days, style: const TextStyle(fontSize: 14)),
             ),
