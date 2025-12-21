@@ -29,7 +29,7 @@ class DaysContenerWidget extends StatelessWidget {
                   : const Color.fromARGB(255, 235, 209, 209),
             ),
             height: 80,
-            width: double.infinity,
+            width: 80,
             child: Center(
               child: Text(days, style: const TextStyle(fontSize: 14)),
             ),
