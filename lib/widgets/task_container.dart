@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TaskContener extends StatelessWidget {
+class TaskContainer extends StatelessWidget {
   final String title;
   final String description;
   final String date;
   final String time;
   final Color color;
-  const TaskContener({
+  const TaskContainer({
     required this.title,
     required this.description,
     required this.date,

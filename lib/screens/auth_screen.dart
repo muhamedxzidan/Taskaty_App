@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:taskaty_app/screens/tasks_screen.dart';
 import 'package:taskaty_app/widgets/avatar_widget.dart';
-import 'package:taskaty_app/widgets/butoom_widgets.dart';
+import 'package:taskaty_app/widgets/button_widget.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -19,12 +19,12 @@ class _AuthScreenState extends State<AuthScreen> {
 
   final ImagePicker picker = ImagePicker();
 
-  void pichImageFromGallery() async {
+  void pickImageFromGallery() async {
     image = await picker.pickImage(source: ImageSource.gallery);
     setState(() {});
   }
 
-  void pichImageFromCamera() async {
+  void pickImageFromCamera() async {
     image = await picker.pickImage(source: ImageSource.camera);
     setState(() {});
   }
@@ -44,7 +44,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 visible: (image != null),
                 replacement: InkWell(
                   onTap: () {
-                    pichImageFromGallery();
+                    pickImageFromGallery();
                   },
                   child: const AvatarWidget(
                     icon: Icons.person,
@@ -64,17 +64,17 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
 
               const SizedBox(height: 20),
-              ButoomWidgets(
+              ButtonWidget(
                 text: "Upload From Gallery",
                 onPressed: () {
-                  pichImageFromGallery();
+                  pickImageFromGallery();
                 },
               ),
               const SizedBox(height: 20),
-              ButoomWidgets(
+              ButtonWidget(
                 text: "Upload From Camera",
                 onPressed: () {
-                  pichImageFromCamera();
+                  pickImageFromCamera();
                 },
               ),
               const SizedBox(height: 20),
@@ -92,7 +92,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
               const SizedBox(height: 20),
 
-              ButoomWidgets(
+              ButtonWidget(
                 text: "Register",
                 onPressed: () {
                   Navigator.push(

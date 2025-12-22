@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskaty_app/widgets/task_contener.dart';
+import 'package:taskaty_app/widgets/task_container.dart';
 
 class TaskItem extends StatelessWidget {
   final String title;
@@ -31,7 +31,7 @@ class TaskItem extends StatelessWidget {
         Icons.check,
       ),
       onDismissed: (direction) => onDismissed?.call(),
-      child: TaskContener(
+      child: TaskContainer(
         title: title,
         time: "${now.hour}:${now.minute}",
         date: "${now.year}-${now.month}-${now.day}",

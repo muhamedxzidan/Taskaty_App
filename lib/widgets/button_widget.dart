@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ButoomWidgets extends StatelessWidget {
+class ButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
-  const ButoomWidgets({super.key, required this.text, required this.onPressed});
+  const ButtonWidget({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
