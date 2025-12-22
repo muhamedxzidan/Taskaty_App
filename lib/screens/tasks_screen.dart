@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taskaty_app/widgets/date_section.dart';
-import 'package:taskaty_app/widgets/days_list_widget.dart';
-import 'package:taskaty_app/widgets/home_header.dart';
-import 'package:taskaty_app/widgets/tasks_list_widget.dart';
+import 'package:taskaty_app/widgets/custom_date_header.dart';
+import 'package:taskaty_app/widgets/custom_days_list.dart';
+import 'package:taskaty_app/widgets/custom_home_header.dart';
+import 'package:taskaty_app/widgets/custom_tasks_list.dart';
 
 // ignore: must_be_immutable
 class TasksScreen extends StatefulWidget {
@@ -24,14 +24,11 @@ class _TasksScreenState extends State<TasksScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const HomeHeader(),
-              const Divider(
-                thickness: 2,
-                color: Color.fromARGB(255, 201, 120, 120),
-              ),
-              const DateSection(),
+              const CustomHomeHeader(),
+              const Divider(thickness: 2, color: Color(0xffC97878)),
+              const CustomDateHeader(),
               const SizedBox(height: 10),
-              DaysListWidget(
+              CustomDaysList(
                 selectedDay: selectedDay,
                 onDaySelected: (day) {
                   setState(() {
@@ -40,7 +37,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 },
               ),
               const SizedBox(height: 10),
-              const TasksListWidget(),
+              const CustomTasksList(),
             ],
           ),
         ),

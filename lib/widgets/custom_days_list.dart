@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:taskaty_app/widgets/days_container_widget.dart';
+import 'package:taskaty_app/widgets/custom_day_item.dart';
 
-class DaysListWidget extends StatelessWidget {
+class CustomDaysList extends StatelessWidget {
   final String selectedDay;
   final Function(String) onDaySelected;
 
-  const DaysListWidget({
+  const CustomDaysList({
     super.key,
     required this.selectedDay,
     required this.onDaySelected,
@@ -53,14 +53,14 @@ class DaysListWidget extends StatelessWidget {
             "Mon",
             "${now.day + 2}",
             currentMonth,
-            const Color.fromARGB(255, 235, 66, 117),
+            const Color(0xffEB4275),
           ),
           _dayButton(
             "tuesday",
             "Tue",
             "${now.day + 3}",
             currentMonth,
-            const Color.fromARGB(255, 235, 66, 117),
+            const Color(0xffEB4275),
           ),
         ],
       ),
@@ -76,7 +76,7 @@ class DaysListWidget extends StatelessWidget {
   ) {
     return InkWell(
       onTap: () => onDaySelected(id),
-      child: DaysContainerWidget(
+      child: CustomDayItem(
         days: label,
         number: num,
         month: month,

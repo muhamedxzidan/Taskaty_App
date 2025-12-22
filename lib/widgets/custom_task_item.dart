@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:taskaty_app/widgets/task_container.dart';
+import 'package:taskaty_app/widgets/custom_task_card.dart';
 
-class TaskItem extends StatelessWidget {
+class CustomTaskItem extends StatelessWidget {
   final String title;
   final String description;
   final Color color;
   final VoidCallback? onDismissed;
 
-  const TaskItem({
+  const CustomTaskItem({
     super.key,
     required this.title,
     required this.description,
@@ -31,7 +31,7 @@ class TaskItem extends StatelessWidget {
         Icons.check,
       ),
       onDismissed: (direction) => onDismissed?.call(),
-      child: TaskContainer(
+      child: CustomTaskCard(
         title: title,
         time: "${now.hour}:${now.minute}",
         date: "${now.year}-${now.month}-${now.day}",

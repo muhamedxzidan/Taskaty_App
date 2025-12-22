@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taskaty_app/widgets/task_item.dart';
+import 'package:taskaty_app/widgets/custom_task_item.dart';
 
-class TasksListWidget extends StatelessWidget {
-  const TasksListWidget({super.key});
+class CustomTasksList extends StatelessWidget {
+  const CustomTasksList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,28 +10,28 @@ class TasksListWidget extends StatelessWidget {
       child: ListView(
         children: const [
           SizedBox(height: 10),
-          TaskItem(
+          CustomTaskItem(
             title: "Flutter Task 1",
             description: "Learning Basics",
-            color: Color.fromARGB(255, 60, 11, 194),
+            color: Color(0xff3C0BC2),
           ),
           SizedBox(height: 10),
-          TaskItem(
+          CustomTaskItem(
             title: "Flutter Task 2",
             description: "UI Design",
-            color: Color.fromARGB(255, 226, 22, 175),
+            color: Color(0xffE216AF),
           ),
           SizedBox(height: 10),
-          TaskItem(
+          CustomTaskItem(
             title: "Flutter Task 3",
             description: "State Management",
-            color: Color.fromARGB(255, 221, 172, 11),
+            color: Color(0xffDDAC0B),
           ),
           SizedBox(height: 10),
-          TaskItem(
+          CustomTaskItem(
             title: "Flutter Task 4",
             description: "API Integration",
-            color: Color.fromARGB(255, 19, 192, 62),
+            color: Color(0xff13C03E),
           ),
           SizedBox(height: 10),
         ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DaysContainerWidget extends StatelessWidget {
-  const DaysContainerWidget({
+class CustomDayItem extends StatelessWidget {
+  const CustomDayItem({
     required this.days,
     required this.month,
     required this.number,
@@ -24,7 +24,7 @@ class DaysContainerWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: isActive ? color : Colors.white,
-          border: Border.all(color: Colors.grey.withOpacity(0.2)),
+          border: Border.all(color: Colors.grey.shade200),
         ),
         height: 100,
         width: 70,
@@ -35,7 +35,7 @@ class DaysContainerWidget extends StatelessWidget {
               month,
               style: TextStyle(
                 fontSize: 12,
-                color: isActive ? Colors.white70 : Colors.grey,
+                color: isActive ? Colors.white70 : Colors.grey.shade600,
                 fontWeight: FontWeight.bold,
               ),
             ),

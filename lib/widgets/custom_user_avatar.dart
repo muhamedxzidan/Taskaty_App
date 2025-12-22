@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AvatarWidget extends StatelessWidget {
+class CustomUserAvatar extends StatelessWidget {
   final IconData? icon;
   final double size;
   final double radius;
   final Color color;
   final Color iconColor;
   final ImageProvider? backgroundImage;
-  const AvatarWidget({
+
+  const CustomUserAvatar({
     super.key,
     this.icon,
     required this.size,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taskaty_app/widgets/button_widget.dart';
+import 'package:taskaty_app/widgets/custom_button.dart';
 
-class DateSection extends StatelessWidget {
-  const DateSection({super.key});
+class CustomDateHeader extends StatelessWidget {
+  const CustomDateHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class DateSection extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        ButtonWidget(text: " +  Add Task", onPressed: () {}),
+        CustomButton(text: " +  Add Task", onPressed: () {}),
       ],
     );
   }

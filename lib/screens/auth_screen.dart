@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:taskaty_app/screens/tasks_screen.dart';
-import 'package:taskaty_app/widgets/avatar_widget.dart';
-import 'package:taskaty_app/widgets/button_widget.dart';
+import 'package:taskaty_app/widgets/custom_user_avatar.dart';
+import 'package:taskaty_app/widgets/custom_button.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -46,7 +46,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   onTap: () {
                     pickImageFromGallery();
                   },
-                  child: const AvatarWidget(
+                  child: const CustomUserAvatar(
                     icon: Icons.person,
                     size: 190,
                     radius: 120,
@@ -54,7 +54,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     iconColor: Colors.deepPurple,
                   ),
                 ),
-                child: AvatarWidget(
+                child: CustomUserAvatar(
                   backgroundImage: FileImage(File(image?.path ?? "")),
                   size: 190,
                   radius: 120,
@@ -64,14 +64,14 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
 
               const SizedBox(height: 20),
-              ButtonWidget(
+              CustomButton(
                 text: "Upload From Gallery",
                 onPressed: () {
                   pickImageFromGallery();
                 },
               ),
               const SizedBox(height: 20),
-              ButtonWidget(
+              CustomButton(
                 text: "Upload From Camera",
                 onPressed: () {
                   pickImageFromCamera();
@@ -92,7 +92,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
               const SizedBox(height: 20),
 
-              ButtonWidget(
+              CustomButton(
                 text: "Register",
                 onPressed: () {
                   Navigator.push(
