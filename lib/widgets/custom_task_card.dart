@@ -36,7 +36,7 @@ class CustomTaskCard extends StatelessWidget {
                   Text(
                     title,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: Color(0xffffffff),
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
@@ -46,28 +46,28 @@ class CustomTaskCard extends StatelessWidget {
                     children: [
                       const Icon(
                         Icons.calendar_month,
-                        color: Colors.white70,
+                        color: Color(0xb3ffffff),
                         size: 16,
                       ),
                       const SizedBox(width: 4),
                       Text(
                         date,
                         style: const TextStyle(
-                          color: Colors.white70,
+                          color: Color(0xb3ffffff),
                           fontSize: 12,
                         ),
                       ),
                       const SizedBox(width: 16),
                       const Icon(
                         Icons.access_time,
-                        color: Colors.white70,
+                        color: Color(0xb3ffffff),
                         size: 16,
                       ),
                       const SizedBox(width: 4),
                       Text(
                         time,
                         style: const TextStyle(
-                          color: Colors.white70,
+                          color: Color(0xb3ffffff),
                           fontSize: 12,
                         ),
                       ),
@@ -76,20 +76,27 @@ class CustomTaskCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     description,
-                    style: const TextStyle(color: Colors.white70, fontSize: 12),
+                    style: const TextStyle(
+                      color: Color(0xb3ffffff),
+                      fontSize: 12,
+                    ),
                   ),
                 ],
               ),
             ),
             const SizedBox(width: 12),
-            Container(width: 1, height: double.infinity, color: Colors.white24),
+            Container(
+              width: 1,
+              height: double.infinity,
+              color: const Color(0x3dffffff),
+            ),
             const SizedBox(width: 8),
             const RotatedBox(
               quarterTurns: 3,
               child: Text(
                 "TODO",
                 style: TextStyle(
-                  color: Colors.white70,
+                  color: Color(0xb3ffffff),
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 2,

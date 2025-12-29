@@ -19,7 +19,7 @@ class CustomHomeHeader extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
+                  color: Color(0xff673ab7),
                 ),
               ),
               Text(
@@ -27,7 +27,7 @@ class CustomHomeHeader extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
+                  color: Color(0xff673ab7),
                 ),
               ),
             ],
@@ -50,8 +50,8 @@ class CustomHomeHeader extends StatelessWidget {
             icon: Icons.person,
             size: 20,
             radius: 20,
-            color: Colors.black,
-            iconColor: Colors.deepPurple,
+            color: Color(0xff000000),
+            iconColor: Color(0xff673ab7),
           ),
         ),
         const Text("Zidan"),

@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:taskaty_app/screens/tasks_screen.dart';
-import 'package:taskaty_app/widgets/custom_user_avatar.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
+import 'package:taskaty_app/widgets/custom_user_avatar.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -50,16 +50,16 @@ class _AuthScreenState extends State<AuthScreen> {
                     icon: Icons.person,
                     size: 190,
                     radius: 120,
-                    color: Colors.black,
-                    iconColor: Colors.deepPurple,
+                    color: Color(0xff000000),
+                    iconColor: Color(0xff673ab7),
                   ),
                 ),
                 child: CustomUserAvatar(
                   backgroundImage: FileImage(File(image?.path ?? "")),
                   size: 190,
                   radius: 120,
-                  color: Colors.black,
-                  iconColor: Colors.deepPurple,
+                  color: const Color(0xff000000),
+                  iconColor: const Color(0xff673ab7),
                 ),
               ),
 

@@ -39,14 +39,14 @@ class CustomDaysList extends StatelessWidget {
             "Sat",
             "${now.day}",
             currentMonth,
-            Colors.deepPurple,
+            const Color(0xff673ab7),
           ),
           _dayButton(
             "sunday",
             "Sun",
             "${now.day + 1}",
             currentMonth,
-            Colors.deepPurple,
+            const Color(0xff673ab7),
           ),
           _dayButton(
             "monday",

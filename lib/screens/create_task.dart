@@ -12,12 +12,12 @@ class CreateTask extends StatefulWidget {
 
 class _CreateTaskState extends State<CreateTask> {
   final List<Color> defaultColors = const [
-    Color(0xFFFF4B4B),
-    Color(0xFFFF9F29),
-    Color(0xFFFFD93D),
-    Color(0xFF6BCB77),
-    Color(0xFF4D96FF),
-    Color(0xFF917FB3),
+    Color(0xffFF4B4B),
+    Color(0xffFF9F29),
+    Color(0xffFFD93D),
+    Color(0xff6BCB77),
+    Color(0xff4D96FF),
+    Color(0xff917FB3),
   ];
   late Color selectedColor;
 
@@ -32,7 +32,7 @@ class _CreateTaskState extends State<CreateTask> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xffffffff),
         appBar: AppBar(
           title: const Text(
             'New Task',
@@ -40,8 +40,8 @@ class _CreateTaskState extends State<CreateTask> {
           ),
           centerTitle: true,
           elevation: 0,
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black,
+          backgroundColor: const Color(0xffffffff),
+          foregroundColor: const Color(0xff000000),
         ),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -55,7 +55,7 @@ class _CreateTaskState extends State<CreateTask> {
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple,
+                    color: Color(0xff673ab7),
                     letterSpacing: -0.5,
                   ),
                 ),

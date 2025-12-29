@@ -22,12 +22,12 @@ class CustomTaskItem extends StatelessWidget {
       key: UniqueKey(),
       background: _buildDismissBackground(
         Alignment.centerLeft,
-        Colors.red,
+        const Color(0xfff44336),
         Icons.delete,
       ),
       secondaryBackground: _buildDismissBackground(
         Alignment.centerRight,
-        Colors.green,
+        const Color(0xff4caf50),
         Icons.check,
       ),
       onDismissed: (direction) => onDismissed?.call(),
@@ -50,7 +50,7 @@ class CustomTaskItem extends StatelessWidget {
       alignment: alignment,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       color: color,
-      child: Icon(icon, color: Colors.white),
+      child: Icon(icon, color: const Color(0xffffffff)),
     );
   }
 }

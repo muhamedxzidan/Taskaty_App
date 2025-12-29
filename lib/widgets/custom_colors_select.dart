@@ -29,7 +29,7 @@ class CustomColorsSelect extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: color,
                 border: isSelected
-                    ? Border.all(color: Colors.white, width: 2)
+                    ? Border.all(color: const Color(0xffffffff), width: 2)
                     : null,
                 boxShadow: isSelected
                     ? [
@@ -43,7 +43,11 @@ class CustomColorsSelect extends StatelessWidget {
               ),
               child: isSelected
                   ? const Center(
-                      child: Icon(Icons.check, color: Colors.white, size: 15),
+                      child: Icon(
+                        Icons.check,
+                        color: Color(0xffffffff),
+                        size: 15,
+                      ),
                     )
                   : null,
             ),

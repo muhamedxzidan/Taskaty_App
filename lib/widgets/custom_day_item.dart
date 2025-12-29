@@ -23,8 +23,8 @@ class CustomDayItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: isActive ? color : Colors.white,
-          border: Border.all(color: Colors.grey.shade200),
+          color: isActive ? color : const Color(0xffffffff),
+          border: Border.all(color: const Color(0xffeeeeee)),
         ),
         height: 100,
         width: 70,
@@ -35,7 +35,9 @@ class CustomDayItem extends StatelessWidget {
               month,
               style: TextStyle(
                 fontSize: 12,
-                color: isActive ? Colors.white70 : Colors.grey.shade600,
+                color: isActive
+                    ? const Color(0xb3ffffff)
+                    : const Color(0xff757575),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -44,7 +46,9 @@ class CustomDayItem extends StatelessWidget {
               number,
               style: TextStyle(
                 fontSize: 22,
-                color: isActive ? Colors.white : Colors.black,
+                color: isActive
+                    ? const Color(0xffffffff)
+                    : const Color(0xff000000),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -53,7 +57,9 @@ class CustomDayItem extends StatelessWidget {
               days,
               style: TextStyle(
                 fontSize: 12,
-                color: isActive ? Colors.white70 : Colors.grey,
+                color: isActive
+                    ? const Color(0xb3ffffff)
+                    : const Color(0xff9e9e9e),
               ),
             ),
           ],
