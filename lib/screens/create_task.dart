@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
 import 'package:taskaty_app/widgets/custom_colors_select.dart';
 import 'package:taskaty_app/widgets/custom_text_form_field.dart';
+import 'package:taskaty_app/widgets/custom_text_title_widget.dart';
 
 class CreateTask extends StatefulWidget {
   const CreateTask({super.key});
@@ -50,55 +51,68 @@ class _CreateTaskState extends State<CreateTask> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Create Task',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff673ab7),
-                    letterSpacing: -0.5,
-                  ),
-                ),
-                const SizedBox(height: 32),
+                const CustomTextTitleWidget(title: 'Create Task', size: 28),
+                const SizedBox(height: 20),
+                const CustomTextTitleWidget(title: 'Task Title', size: 16),
                 const CustomTextFormField(
                   maxLines: 1,
                   hintText: 'Enter task title',
                   label: 'Task Title',
                 ),
                 const SizedBox(height: 25),
+                const CustomTextTitleWidget(
+                  title: 'Task Description',
+                  size: 16,
+                ),
 
                 const CustomTextFormField(
                   maxLines: 3,
                   hintText: 'Enter task description',
                   label: 'Task Description',
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 20),
+                const CustomTextTitleWidget(title: 'Date & Time', size: 16),
                 const CustomTextFormField(
                   hintText: 'Enter Date & Time',
                   label: 'Date & Time',
                   icon: Icons.calendar_month,
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 20),
                 const Row(
                   children: [
                     Expanded(
-                      child: CustomTextFormField(
-                        hintText: 'Start Time',
-                        label: 'Start Time',
-                        icon: Icons.access_time,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomTextTitleWidget(title: 'Start Time', size: 16),
+                          CustomTextFormField(
+                            hintText: 'Start Time',
+                            label: 'Start Time',
+                            icon: Icons.access_time,
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(width: 25),
+
                     Expanded(
-                      child: CustomTextFormField(
-                        hintText: 'End Time',
-                        label: 'End Time',
-                        icon: Icons.access_time,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomTextTitleWidget(title: 'End Time', size: 16),
+                          CustomTextFormField(
+                            hintText: 'End Time',
+                            label: 'End Time',
+                            icon: Icons.access_time,
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 20),
+                const CustomTextTitleWidget(title: 'Choose Color', size: 16),
+
                 CustomColorsSelect(
                   colors: defaultColors,
                   selectedColor: selectedColor,
@@ -108,7 +122,7 @@ class _CreateTaskState extends State<CreateTask> {
                     });
                   },
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 20),
                 CustomButton(text: 'Create Task', onPressed: () {}),
               ],
             ),

@@ -23,13 +23,14 @@ class CustomColorsSelect extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(right: 12),
             child: Container(
+              margin: const EdgeInsets.all(5),
               width: 32,
               height: 32,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: color,
                 border: isSelected
-                    ? Border.all(color: const Color(0xffffffff), width: 2)
+                    ? Border.all(color: const Color(0xffffffff), width: 5)
                     : null,
                 boxShadow: isSelected
                     ? [
