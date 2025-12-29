@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
 import 'package:taskaty_app/widgets/custom_colors_select.dart';
-import 'package:taskaty_app/widgets/custom_textformfild_widget.dart';
+import 'package:taskaty_app/widgets/custom_text_form_field.dart';
 
 class CreateTask extends StatefulWidget {
   const CreateTask({super.key});
@@ -60,20 +60,20 @@ class _CreateTaskState extends State<CreateTask> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                const CustomTextformfildWidget(
+                const CustomTextFormField(
                   maxLines: 1,
                   hintText: 'Enter task title',
                   label: 'Task Title',
                 ),
                 const SizedBox(height: 25),
 
-                const CustomTextformfildWidget(
+                const CustomTextFormField(
                   maxLines: 3,
                   hintText: 'Enter task description',
                   label: 'Task Description',
                 ),
                 const SizedBox(height: 25),
-                const CustomTextformfildWidget(
+                const CustomTextFormField(
                   hintText: 'Enter Date & Time',
                   label: 'Date & Time',
                   icon: Icons.calendar_month,
@@ -82,7 +82,7 @@ class _CreateTaskState extends State<CreateTask> {
                 const Row(
                   children: [
                     Expanded(
-                      child: CustomTextformfildWidget(
+                      child: CustomTextFormField(
                         hintText: 'Start Time',
                         label: 'Start Time',
                         icon: Icons.access_time,
@@ -90,7 +90,7 @@ class _CreateTaskState extends State<CreateTask> {
                     ),
                     SizedBox(width: 25),
                     Expanded(
-                      child: CustomTextformfildWidget(
+                      child: CustomTextFormField(
                         hintText: 'End Time',
                         label: 'End Time',
                         icon: Icons.access_time,
