@@ -16,8 +16,7 @@ just UI create screen
 
 
 
-![WhatsApp Image 2025-12-29 at 3 51 07 AM](https://github.com/user-attachments/assets/2319a060-3ad6-4034-8315-ef2bbfdfec26)
-
+![WhatsApp Image 2025-12-30 at 1 33 50 AM](https://github.com/user-attachments/assets/acd5d7e3-bba0-4adb-a7b0-456bd1a7cbe5)
 
 
 ## Getting Started
