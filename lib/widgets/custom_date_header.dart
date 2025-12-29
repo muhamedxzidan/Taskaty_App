@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskaty_app/screens/create_task.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
 
 class CustomDateHeader extends StatelessWidget {
@@ -23,7 +24,15 @@ class CustomDateHeader extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        CustomButton(text: " +  Add Task", onPressed: () {}),
+        CustomButton(
+          text: " +  Add Task",
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CreateTask()),
+            );
+          },
+        ),
       ],
     );
   }
