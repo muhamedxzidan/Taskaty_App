@@ -30,7 +30,7 @@ class CustomDateHeader extends StatelessWidget {
         ),
         CustomButton(
           width: 150,
-          text: " +  Add Task",
+          text: "+ Add Task",
           onPressed: () {
             Navigator.push(
               context,
