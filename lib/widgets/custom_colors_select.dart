@@ -21,20 +21,31 @@ class CustomColorsSelect extends StatelessWidget {
         return GestureDetector(
           onTap: () => onColorSelected(color),
           child: Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Stack(
-              children: [
-                Container(
-                  width: 26,
-                  height: 26,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: color,
-                  ),
-                ),
-                if (isSelected)
-                  const Icon(Icons.check, color: Color.fromARGB(255, 0, 0, 0)),
-              ],
+            padding: const EdgeInsets.only(right: 12),
+            child: Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: color,
+                border: isSelected
+                    ? Border.all(color: Colors.white, width: 2)
+                    : null,
+                boxShadow: isSelected
+                    ? [
+                        BoxShadow(
+                          color: color.withValues(alpha: 0.4),
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ]
+                    : null,
+              ),
+              child: isSelected
+                  ? const Center(
+                      child: Icon(Icons.check, color: Colors.white, size: 15),
+                    )
+                  : null,
             ),
           ),
         );

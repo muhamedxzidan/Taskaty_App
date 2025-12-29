@@ -10,21 +10,26 @@ class CustomDateHeader extends StatelessWidget {
     DateTime now = DateTime.now();
     return Row(
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "${now.month}/${now.day}/${now.year}",
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const Text(
-              "Today",
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            ),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "${now.month}/${now.day}/${now.year}",
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Text(
+                "Today",
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
-        const Spacer(),
         CustomButton(
+          width: 150,
           text: " +  Add Task",
           onPressed: () {
             Navigator.push(

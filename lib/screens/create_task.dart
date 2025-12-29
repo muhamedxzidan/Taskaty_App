@@ -32,75 +32,89 @@ class _CreateTaskState extends State<CreateTask> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        appBar: AppBar(title: const Text('Create Task')),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Create Task',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
-                ),
-              ),
-              const SizedBox(height: 25),
-              const CustomTextformfildWidget(
-                maxLines: 1,
-                hintText: 'Enter task title',
-                label: 'Task Title',
-              ),
-              const SizedBox(height: 25),
-
-              const CustomTextformfildWidget(
-                maxLines: 3,
-                hintText: 'Enter task description',
-                label: 'Task Description',
-              ),
-              const SizedBox(height: 25),
-              const CustomTextformfildWidget(
-                hintText: 'Enter Date & Time',
-                label: 'Date & Time',
-                icon: Icons.calendar_month,
-              ),
-              const SizedBox(height: 25),
-              const Row(
-                children: [
-                  Expanded(
-                    child: CustomTextformfildWidget(
-                      hintText: 'Start Time',
-                      label: 'Start Time',
-                      icon: Icons.access_time,
-                    ),
-                  ),
-                  SizedBox(width: 25),
-                  Expanded(
-                    child: CustomTextformfildWidget(
-                      hintText: 'End Time',
-                      label: 'End Time',
-                      icon: Icons.access_time,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 25),
-              CustomColorsSelect(
-                colors: defaultColors,
-                selectedColor: selectedColor,
-                onColorSelected: (color) {
-                  setState(() {
-                    selectedColor = color;
-                  });
-                },
-              ),
-              const SizedBox(height: 50),
-              CustomButton(text: 'Create Task', onPressed: () {}),
-            ],
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Text(
+            'New Task',
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Create Task',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepPurple,
+                    letterSpacing: -0.5,
+                  ),
+                ),
+                const SizedBox(height: 32),
+                const CustomTextformfildWidget(
+                  maxLines: 1,
+                  hintText: 'Enter task title',
+                  label: 'Task Title',
+                ),
+                const SizedBox(height: 25),
+
+                const CustomTextformfildWidget(
+                  maxLines: 3,
+                  hintText: 'Enter task description',
+                  label: 'Task Description',
+                ),
+                const SizedBox(height: 25),
+                const CustomTextformfildWidget(
+                  hintText: 'Enter Date & Time',
+                  label: 'Date & Time',
+                  icon: Icons.calendar_month,
+                ),
+                const SizedBox(height: 25),
+                const Row(
+                  children: [
+                    Expanded(
+                      child: CustomTextformfildWidget(
+                        hintText: 'Start Time',
+                        label: 'Start Time',
+                        icon: Icons.access_time,
+                      ),
+                    ),
+                    SizedBox(width: 25),
+                    Expanded(
+                      child: CustomTextformfildWidget(
+                        hintText: 'End Time',
+                        label: 'End Time',
+                        icon: Icons.access_time,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 25),
+                CustomColorsSelect(
+                  colors: defaultColors,
+                  selectedColor: selectedColor,
+                  onColorSelected: (color) {
+                    setState(() {
+                      selectedColor = color;
+                    });
+                  },
+                ),
+                const SizedBox(height: 50),
+                CustomButton(text: 'Create Task', onPressed: () {}),
+              ],
+            ),
+          ),
+        ), // SingleChildScrollView
+      ), // Scaffold
+    ); // GestureDetector
   }
 }
