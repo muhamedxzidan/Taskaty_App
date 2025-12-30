@@ -1,6 +1,19 @@
-# taskaty_app
+# Flutter Task Management App UI (Taskaty)
 
-A new Flutter project.
+Taskaty is a clean and user-friendly Task Management App UI built using Flutter.
+
+This project focuses on creating a smooth and simple user interface for managing daily tasks, with an emphasis on clean code and reusable widgets.
+
+## ✨ Features
+- Task list UI
+- Add task screen UI
+- Simple and clean user experience
+- Reusable Flutter widgets
+- Responsive layout for different screen sizes
+- Organized UI structure
+
+## 📱 Screenshots
+(
 <img width="400" height="717" alt="Screenshot 2025-12-13 00:33:37" src="https://github.com/user-attachments/assets/4444a0b4-36a7-47f5-8598-dcfc4350aa99" />
 
 <img width="400" height="717" alt="Screenshot 2025-12-13 00:32:53" src="https://github.com/user-attachments/assets/dcb968d3-7a5f-4cd1-8043-844659c3269f" />
@@ -17,17 +30,13 @@ just UI create screen
 
 
 ![WhatsApp Image 2025-12-30 at 1 33 50 AM](https://github.com/user-attachments/assets/acd5d7e3-bba0-4adb-a7b0-456bd1a7cbe5)
+)
 
+## 🛠️ Built With
+- Flutter
+- Dart
+- Material Design
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📌 Note
+This project is created for learning and portfolio purposes.
+It focuses on frontend UI only without backend, database, or API integration.
