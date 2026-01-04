@@ -6,22 +6,37 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     required this.label,
     this.errorText,
-    this.initialValue,
     this.validator,
     this.maxLines = 1,
     this.icon,
+    this.controller,
+    this.onTap,
+    this.readOnly = false,
   });
   final String hintText;
+  final bool readOnly;
   final String label;
   final String? errorText;
-  final String? initialValue;
   final String? Function(String?)? validator;
   final int maxLines;
   final IconData? icon;
+  final TextEditingController? controller;
+  final void Function()? onTap;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: initialValue,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "This is req";
+        }
+        return null;
+      },
+
+      onTap: onTap,
+
+      readOnly: readOnly,
+      controller: controller,
       maxLines: maxLines,
       decoration: InputDecoration(
         hintText: hintText,
@@ -30,6 +45,7 @@ class CustomTextFormField extends StatelessWidget {
           color: Color(0xff673ab7),
           fontWeight: FontWeight.w500,
         ),
+
         hintStyle: const TextStyle(color: Color(0xffbdbdbd)),
         filled: true,
         fillColor: const Color(0xfffafafa),
@@ -40,6 +56,7 @@ class CustomTextFormField extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(color: Color(0xff673ab7), width: 2),
         ),
+
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(color: Color(0xffe0e0e0)),
@@ -50,7 +67,6 @@ class CustomTextFormField extends StatelessWidget {
           vertical: 18,
         ),
       ),
-      validator: validator,
     );
   }
 }

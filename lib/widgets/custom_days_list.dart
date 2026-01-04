@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:taskaty_app/widgets/custom_day_item.dart';
 
 class CustomDaysList extends StatelessWidget {
   final String selectedDay;
@@ -74,14 +73,56 @@ class CustomDaysList extends StatelessWidget {
     String month,
     Color color,
   ) {
+    bool isActive = selectedDay == id;
     return InkWell(
       onTap: () => onDaySelected(id),
-      child: CustomDayItem(
-        days: label,
-        number: num,
-        month: month,
-        color: color,
-        isActive: selectedDay == id,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: isActive ? color : const Color(0xffffffff),
+            border: Border.all(color: const Color(0xffeeeeee)),
+          ),
+          height: 100,
+          width: 70,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                month,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: isActive
+                      ? const Color(0xb3ffffff)
+                      : const Color(0xff757575),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                num,
+                style: TextStyle(
+                  fontSize: 22,
+                  color: isActive
+                      ? const Color(0xffffffff)
+                      : const Color(0xff000000),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: isActive
+                      ? const Color(0xb3ffffff)
+                      : const Color(0xff9e9e9e),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

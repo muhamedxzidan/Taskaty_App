@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskaty_app/model/task_model.dart';
 import 'package:taskaty_app/widgets/custom_date_header.dart';
 import 'package:taskaty_app/widgets/custom_days_list.dart';
 import 'package:taskaty_app/widgets/custom_home_header.dart';
@@ -37,7 +38,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 },
               ),
               const SizedBox(height: 10),
-              const CustomTasksList(),
+              CustomTasksList(tasks: tasksList),
             ],
           ),
         ),

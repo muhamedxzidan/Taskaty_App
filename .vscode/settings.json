@@ -1,19 +1,25 @@
 {
-    "cSpell.words": [
-        "taskaty"
-    ],
-    "editor.inlineSuggest.enabled": false,
-    "editor.quickSuggestions": {
-        "other": "off",
-        "comments": "off",
-        "strings": "off"
-    },
-    "editor.suggestOnTriggerCharacters": false,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": "explicit",
-        "source.organizeImports": "explicit"
-    },
-    "dart.previewFlutterUiGuides": true,
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true
-    }
+  "cSpell.words": ["taskaty"],
+
+  "editor.inlineSuggest.enabled": false,
+
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "off"
+  },
+
+  "editor.suggestOnTriggerCharacters": true,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  "dart.previewFlutterUiGuides": true,
+
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+
+  "editor.formatOnSave": true
+}
