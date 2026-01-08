@@ -23,9 +23,12 @@
 
 | Splash Screen | Registration | Task Dashboard | Create Task |
 | :---: | :---: | :---: | :---: |
-| ![Splash](https://via.placeholder.com/200x400?text=Splash+Screen) | ![Auth](https://via.placeholder.com/200x400?text=Auth+Screen) | ![Dashboard](https://via.placeholder.com/200x400?text=Dashboard) | ![Create](https://via.placeholder.com/200x400?text=Create+Task) |
+| ![Splash](https://github.com/user-attachments/assets/4444a0b4-36a7-47f5-8598-dcfc4350aa99) | ![Auth](https://github.com/user-attachments/assets/dcb968d3-7a5f-4cd1-8043-844659c3269f) | ![Dashboard](https://github.com/user-attachments/assets/e7a33f8a-cf0a-4e4b-828f-920c422d3420) | ![Create](https://github.com/user-attachments/assets/5cda1f18-bee5-447e-a2ea-43d1aaaf16c4) |
 
-*(Note: Replace placeholders with actual screenshots from the `assets` folder or external links)*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/79fe2672-06b9-47f6-8594-c3c10b233861" width="30%" alt="Taskaty UI 1" />
+  <img src="https://github.com/user-attachments/assets/acd5d7e3-bba0-4adb-a7b0-456bd1a7cbe5" width="30%" alt="Taskaty UI 2" />
+</p>
 
 ---
 
