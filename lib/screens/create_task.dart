@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskaty_app/model/task_model.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
 import 'package:taskaty_app/widgets/custom_colors_select.dart';
 import 'package:taskaty_app/widgets/custom_text_form_field.dart';
@@ -155,7 +156,21 @@ class _CreateTaskState extends State<CreateTask> {
                     width: double.infinity,
                     text: 'Create Task',
                     onPressed: () {
-                      formKey.currentState?.validate();
+                      setState(() {
+                        if (!formKey.currentState!.validate()) return;
+                        {
+                          tasksList.add(
+                            TaskModel(
+                              title: titleController.text,
+                              description: descriptionController.text,
+                              date: dateController.text,
+                              time: startTimeController.text,
+                              color: selectedColor,
+                            ),
+                          );
+                        }
+                        Navigator.pop(context);
+                      });
                     },
                   ),
                 ],
