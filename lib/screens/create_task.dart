@@ -63,7 +63,7 @@ class _CreateTaskState extends State<CreateTask> {
                 children: [
                   const CustomTextTitleWidget(title: 'Create Task', size: 28),
                   const SizedBox(height: 20),
-                  const CustomTextTitleWidget(title: 'Task Title', size: 16),
+                  const CustomTextTitleWidget(title: "Title", size: 16),
                   CustomTextFormField(
                     controller: titleController,
                     maxLines: 1,
@@ -156,21 +156,19 @@ class _CreateTaskState extends State<CreateTask> {
                     width: double.infinity,
                     text: 'Create Task',
                     onPressed: () {
-                      setState(() {
-                        if (!formKey.currentState!.validate()) return;
-                        {
-                          tasksList.add(
-                            TaskModel(
-                              title: titleController.text,
-                              description: descriptionController.text,
-                              date: dateController.text,
-                              time: startTimeController.text,
-                              color: selectedColor,
-                            ),
-                          );
-                        }
-                        Navigator.pop(context);
-                      });
+                      if (!formKey.currentState!.validate()) return;
+                      {
+                        tasksList.add(
+                          TaskModel(
+                            title: titleController.text,
+                            description: descriptionController.text,
+                            date: dateController.text,
+                            time: startTimeController.text,
+                            color: selectedColor,
+                          ),
+                        );
+                        Navigator.pop(context, true);
+                      }
                     },
                   ),
                 ],

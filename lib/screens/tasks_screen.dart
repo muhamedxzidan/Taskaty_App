@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taskaty_app/model/task_model.dart';
+import 'package:taskaty_app/screens/create_task.dart';
 import 'package:taskaty_app/widgets/custom_date_header.dart';
 import 'package:taskaty_app/widgets/custom_days_list.dart';
 import 'package:taskaty_app/widgets/custom_home_header.dart';
@@ -27,7 +28,17 @@ class _TasksScreenState extends State<TasksScreen> {
             children: [
               const CustomHomeHeader(),
               const Divider(thickness: 2, color: Color(0xffC97878)),
-              const CustomDateHeader(),
+              CustomDateHeader(
+                onAddTaskTap: () async {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const CreateTask()),
+                  );
+                  if (result == true) {
+                    setState(() {});
+                  }
+                },
+              ),
               const SizedBox(height: 10),
               CustomDaysList(
                 selectedDay: selectedDay,
