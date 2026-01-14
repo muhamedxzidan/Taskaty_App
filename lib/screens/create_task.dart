@@ -120,7 +120,7 @@ class _CreateTaskState extends State<CreateTask> {
 
                             CustomTextFormField(
                               controller: startTimeController,
-                              readOnly: false,
+                              readOnly: true,
                               onTap: () {
                                 showTimePicker(
                                   context: context,
@@ -148,6 +148,7 @@ class _CreateTaskState extends State<CreateTask> {
                               size: 16,
                             ),
                             CustomTextFormField(
+                              readOnly: true,
                               controller: endTimeController,
                               onTap: () {
                                 showTimePicker(

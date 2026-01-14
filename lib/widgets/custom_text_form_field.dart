@@ -28,7 +28,7 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return "This is req";
+          return "This is requerd";
         }
         return null;
       },
