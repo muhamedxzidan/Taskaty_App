@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:taskaty_app/model/task_model.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
 import 'package:taskaty_app/widgets/custom_colors_select.dart';
@@ -57,6 +58,7 @@ class _CreateTaskState extends State<CreateTask> {
           child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: Form(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +87,21 @@ class _CreateTaskState extends State<CreateTask> {
                   const SizedBox(height: 20),
                   const CustomTextTitleWidget(title: 'Date ', size: 16),
                   CustomTextFormField(
+                    readOnly: true,
                     controller: dateController,
+                    onTap: () {
+                      showDatePicker(
+                        context: context,
+                        firstDate: DateTime.now(),
+                        lastDate: DateTime(2090),
+                        barrierDismissible: false,
+                      ).then((valDate) {
+                        dateController.text = DateFormat(
+                          'dd/MM/yyyy',
+                        ).format(valDate!);
+                      });
+                    },
+
                     hintText: 'Enter Date ',
                     label: 'Date ',
                     icon: Icons.calendar_month,
@@ -109,7 +125,10 @@ class _CreateTaskState extends State<CreateTask> {
                                 showTimePicker(
                                   context: context,
                                   initialTime: TimeOfDay.now(),
-                                );
+                                ).then((valstarttime) {
+                                  startTimeController.text = valstarttime!
+                                      .format(context);
+                                });
                               },
                               hintText: 'Start Time',
                               label: 'Start Time',
@@ -130,6 +149,17 @@ class _CreateTaskState extends State<CreateTask> {
                             ),
                             CustomTextFormField(
                               controller: endTimeController,
+                              onTap: () {
+                                showTimePicker(
+                                  context: context,
+                                  initialTime: TimeOfDay.now(),
+                                ).then((valendtime) {
+                                  endTimeController.text = valendtime!.format(
+                                    context,
+                                  );
+                                });
+                              },
+
                               hintText: 'End Time',
                               label: 'End Time',
                               icon: Icons.access_time,

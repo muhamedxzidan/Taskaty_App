@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:taskaty_app/screens/tasks_screen.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
+import 'package:taskaty_app/widgets/custom_text_form_field.dart';
 import 'package:taskaty_app/widgets/custom_user_avatar.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -29,6 +30,10 @@ class _AuthScreenState extends State<AuthScreen> {
     setState(() {});
   }
 
+  var register = GlobalKey<FormState>();
+
+  final TextEditingController regUserControl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -37,71 +42,77 @@ class _AuthScreenState extends State<AuthScreen> {
       },
       child: Scaffold(
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Visibility(
-                visible: (image != null),
-                replacement: InkWell(
-                  onTap: () {
-                    pickImageFromGallery();
-                  },
-                  child: const CustomUserAvatar(
-                    icon: Icons.person,
+          child: Form(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+
+            key: register,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Visibility(
+                  visible: (image != null),
+                  replacement: InkWell(
+                    onTap: () {
+                      pickImageFromGallery();
+                    },
+                    child: const CustomUserAvatar(
+                      icon: Icons.person,
+                      size: 190,
+                      radius: 120,
+                      color: Color(0xff000000),
+                      iconColor: Color(0xff673ab7),
+                    ),
+                  ),
+                  child: CustomUserAvatar(
+                    backgroundImage: FileImage(File(image?.path ?? "")),
                     size: 190,
                     radius: 120,
-                    color: Color(0xff000000),
-                    iconColor: Color(0xff673ab7),
+                    color: const Color(0xff000000),
+                    iconColor: const Color(0xff673ab7),
                   ),
                 ),
-                child: CustomUserAvatar(
-                  backgroundImage: FileImage(File(image?.path ?? "")),
-                  size: 190,
-                  radius: 120,
-                  color: const Color(0xff000000),
-                  iconColor: const Color(0xff673ab7),
+
+                const SizedBox(height: 20),
+                CustomButton(
+                  text: "Upload From Gallery",
+                  onPressed: () {
+                    pickImageFromGallery();
+                  },
                 ),
-              ),
+                const SizedBox(height: 20),
+                CustomButton(
+                  text: "Upload From Camera",
+                  onPressed: () {
+                    pickImageFromCamera();
+                  },
+                ),
+                const SizedBox(height: 20),
+                const Divider(thickness: 2),
 
-              const SizedBox(height: 20),
-              CustomButton(
-                text: "Upload From Gallery",
-                onPressed: () {
-                  pickImageFromGallery();
-                },
-              ),
-              const SizedBox(height: 20),
-              CustomButton(
-                text: "Upload From Camera",
-                onPressed: () {
-                  pickImageFromCamera();
-                },
-              ),
-              const SizedBox(height: 20),
-              const Divider(thickness: 2),
-
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Your Name",
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: CustomTextFormField(
+                    controller: regUserControl,
+                    hintText: "Enter User Name",
+                    label: "User Name",
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              CustomButton(
-                text: "Register",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TasksScreen()),
-                  );
-                },
-              ),
-            ],
+                CustomButton(
+                  text: "Register",
+                  onPressed: () {
+                    if (!register.currentState!.validate()) return;
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TasksScreen()),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
