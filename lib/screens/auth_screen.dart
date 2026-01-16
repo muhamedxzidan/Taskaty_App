@@ -36,82 +36,99 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
-      child: Scaffold(
-        body: Center(
-          child: Form(
-            autovalidateMode: AutovalidateMode.onUserInteraction,
+    return SafeArea(
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
 
-            key: register,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Visibility(
-                  visible: (image != null),
-                  replacement: InkWell(
-                    onTap: () {
-                      pickImageFromGallery();
-                    },
-                    child: const CustomUserAvatar(
-                      icon: Icons.person,
-                      size: 190,
-                      radius: 120,
-                      color: Color(0xff000000),
-                      iconColor: Color(0xff673ab7),
+        child: Scaffold(
+          body: SingleChildScrollView(
+            child: Center(
+              child: Form(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+
+                key: register,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      children: [
+                        Visibility(
+                          visible: (image != null),
+                          replacement: InkWell(
+                            onTap: () {
+                              pickImageFromGallery();
+                            },
+                            child: const CustomUserAvatar(
+                              icon: Icons.person,
+                              size: 190,
+                              radius: 120,
+                              color: Color(0xff000000),
+                              iconColor: Color(0xff673ab7),
+                            ),
+                          ),
+                          child: CustomUserAvatar(
+                            backgroundImage: FileImage(File(image?.path ?? "")),
+                            size: 190,
+                            radius: 120,
+                            color: const Color(0xff000000),
+                            iconColor: const Color(0xff673ab7),
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+                        CustomButton(
+                          text: "Upload From Gallery",
+                          onPressed: () {
+                            pickImageFromGallery();
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        CustomButton(
+                          text: "Upload From Camera",
+                          onPressed: () {
+                            pickImageFromCamera();
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        const Divider(thickness: 2),
+
+                        Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: CustomTextFormField(
+                            controller: regUserControl,
+                            hintText: "Enter User Name",
+                            label: "User Name",
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        Center(
+                          child: CustomButton(
+                            width: double.maxFinite,
+                            text: "Register",
+                            onPressed: () {
+                              if (!register.currentState!.validate()) return;
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TasksScreen(),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  child: CustomUserAvatar(
-                    backgroundImage: FileImage(File(image?.path ?? "")),
-                    size: 190,
-                    radius: 120,
-                    color: const Color(0xff000000),
-                    iconColor: const Color(0xff673ab7),
-                  ),
                 ),
-
-                const SizedBox(height: 20),
-                CustomButton(
-                  text: "Upload From Gallery",
-                  onPressed: () {
-                    pickImageFromGallery();
-                  },
-                ),
-                const SizedBox(height: 20),
-                CustomButton(
-                  text: "Upload From Camera",
-                  onPressed: () {
-                    pickImageFromCamera();
-                  },
-                ),
-                const SizedBox(height: 20),
-                const Divider(thickness: 2),
-
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: CustomTextFormField(
-                    controller: regUserControl,
-                    hintText: "Enter User Name",
-                    label: "User Name",
-                  ),
-                ),
-
-                const SizedBox(height: 20),
-
-                CustomButton(
-                  text: "Register",
-                  onPressed: () {
-                    if (!register.currentState!.validate()) return;
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => TasksScreen()),
-                    );
-                  },
-                ),
-              ],
+              ),
             ),
           ),
         ),

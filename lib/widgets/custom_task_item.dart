@@ -11,11 +11,13 @@ class CustomTaskItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dismissible(
       key: UniqueKey(),
+
       background: _buildDismissBackground(
         Alignment.centerLeft,
         const Color(0xfff44336),
         Icons.delete,
       ),
+
       secondaryBackground: _buildDismissBackground(
         Alignment.centerRight,
         const Color(0xff4caf50),
