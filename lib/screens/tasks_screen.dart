@@ -55,7 +55,25 @@ class _TasksScreenState extends State<TasksScreen> {
               ),
               const SizedBox(height: 10),
               CustomTasksList(
-                tasks: Hive.box<TaskModel>('tasks').values.toList(),
+                tasks: Hive.box<TaskModel>('tasks').values
+                    .where((task) {
+                      if (selectedFilter == 'all') {
+                        return true;
+                      }
+                      if (selectedFilter == 'todo') {
+                        return task.status == 'TO-DO';
+                      }
+                      if (selectedFilter == 'complete') {
+                        return task.status == 'DONE';
+                      }
+                      return true;
+                    })
+                    .toList()
+                    .reversed
+                    .toList(),
+                onTaskUpdated: () {
+                  setState(() {});
+                },
               ),
             ],
           ),

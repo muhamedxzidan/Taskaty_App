@@ -5,7 +5,6 @@ part 'task_model.g.dart';
 
 @HiveType(typeId: 1)
 class TaskModel extends HiveObject {
-  // extand beco save in hive
   @HiveField(0)
   final String title;
   @HiveField(1)
@@ -16,6 +15,8 @@ class TaskModel extends HiveObject {
   final String time;
   @HiveField(4)
   final int colorValue;
+  @HiveField(5)
+  String status;
 
   TaskModel({
     required this.title,
@@ -23,6 +24,7 @@ class TaskModel extends HiveObject {
     required this.date,
     required this.time,
     required Color color,
+    this.status = 'TO-DO',
   }) : colorValue = color.toARGB32();
 
   Color get color => Color(colorValue);

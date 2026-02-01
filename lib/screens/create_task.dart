@@ -42,7 +42,9 @@ class _CreateTaskState extends State<CreateTask> {
   TimeOfDay? endTime;
 
   bool _isValidTimeRange() {
-    if (startTime == null || endTime == null) return true;
+    if (startTime == null || endTime == null) {
+      return true; // chek a time is null
+    }
 
     final now = DateTime.now();
     final startDateTime = DateTime(

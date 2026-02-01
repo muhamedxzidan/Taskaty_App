@@ -3,29 +3,48 @@ import 'package:taskaty_app/model/task_model.dart';
 
 class CustomTaskItem extends StatelessWidget {
   final TaskModel task;
-  final VoidCallback? onDismissed;
+  final VoidCallback? onDelete;
+  final VoidCallback? onComplete;
+  final VoidCallback? onTap;
 
-  const CustomTaskItem({super.key, required this.task, this.onDismissed});
+  const CustomTaskItem({
+    super.key,
+    required this.task,
+    this.onDelete,
+    this.onComplete,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       key: UniqueKey(),
-
+      confirmDismiss: (direction) async {
+        if (direction == DismissDirection.startToEnd) {
+          onComplete?.call();
+          return false;
+        } else if (direction == DismissDirection.endToStart) {
+          return true;
+        }
+        return false;
+      },
       background: _buildDismissBackground(
         Alignment.centerLeft,
-        const Color(0xfff44336),
-        Icons.delete,
-        
+        const Color(0xff4caf50),
+        Icons.check,
       ),
 
       secondaryBackground: _buildDismissBackground(
         Alignment.centerRight,
-        const Color(0xff4caf50),
-        Icons.check,
+        const Color(0xfff44336),
+        Icons.delete,
       ),
-      onDismissed: (direction) => onDismissed?.call(),
-      
+      onDismissed: (direction) {
+        if (direction == DismissDirection.endToStart) {
+          onDelete?.call();
+        }
+      },
+
       child: Container(
         height: 120,
         width: double.infinity,
@@ -100,11 +119,11 @@ class CustomTaskItem extends StatelessWidget {
                 color: const Color(0x3dffffff),
               ),
               const SizedBox(width: 8),
-              const RotatedBox(
+              RotatedBox(
                 quarterTurns: 3,
                 child: Text(
-                  "TO-DO",
-                  style: TextStyle(
+                  task.status,
+                  style: const TextStyle(
                     color: Color(0xb3ffffff),
                     fontSize: 12,
                     fontWeight: FontWeight.bold,

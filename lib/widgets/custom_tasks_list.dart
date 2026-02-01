@@ -4,9 +4,10 @@ import 'package:taskaty_app/model/task_model.dart';
 import 'package:taskaty_app/widgets/custom_task_item.dart';
 
 class CustomTasksList extends StatefulWidget {
-  const CustomTasksList({super.key, required this.tasks});
+  const CustomTasksList({super.key, required this.tasks, this.onTaskUpdated});
 
   final List<TaskModel> tasks;
+  final VoidCallback? onTaskUpdated;
 
   @override
   State<CustomTasksList> createState() => _CustomTasksListState();
@@ -23,7 +24,18 @@ class _CustomTasksListState extends State<CustomTasksList> {
               itemCount: widget.tasks.length,
               itemBuilder: (context, index) {
                 final task = widget.tasks[index];
-                return CustomTaskItem(task: task);
+                return CustomTaskItem(
+                  task: task,
+                  onDelete: () {
+                    task.delete();
+                    widget.onTaskUpdated?.call();
+                  },
+                  onComplete: () {
+                    task.status = 'DONE';
+                    task.save();
+                    widget.onTaskUpdated?.call();
+                  },
+                );
               },
               separatorBuilder: (context, index) => const SizedBox(height: 12),
             ),

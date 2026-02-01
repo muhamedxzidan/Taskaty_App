@@ -21,6 +21,7 @@ class TaskModelAdapter extends TypeAdapter<TaskModel> {
       description: fields[1] as String,
       date: fields[2] as String,
       time: fields[3] as String,
+      status: fields[5] as String,
       color: Color(fields[4] as int),
     );
   }
@@ -28,7 +29,7 @@ class TaskModelAdapter extends TypeAdapter<TaskModel> {
   @override
   void write(BinaryWriter writer, TaskModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class TaskModelAdapter extends TypeAdapter<TaskModel> {
       ..writeByte(3)
       ..write(obj.time)
       ..writeByte(4)
-      ..write(obj.colorValue);
+      ..write(obj.colorValue)
+      ..writeByte(5)
+      ..write(obj.status);
   }
 
   @override
