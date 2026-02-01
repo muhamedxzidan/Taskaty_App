@@ -3,8 +3,8 @@ import 'package:hive/hive.dart';
 import 'package:taskaty_app/model/task_model.dart';
 import 'package:taskaty_app/model/user_model.dart';
 import 'package:taskaty_app/screens/create_task.dart';
-import 'package:taskaty_app/widgets/custom_date_header.dart';
-import 'package:taskaty_app/widgets/custom_days_list.dart';
+import 'package:taskaty_app/widgets/custom_button.dart';
+import 'package:taskaty_app/widgets/custom_filter_buttons.dart';
 import 'package:taskaty_app/widgets/custom_home_header.dart';
 import 'package:taskaty_app/widgets/custom_tasks_list.dart';
 
@@ -18,7 +18,7 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  String selectedDay = "saturday";
+  String selectedFilter = "all";
   UserModel user = Hive.box<UserModel>('user').getAt(0)!;
 
   @override
@@ -31,8 +31,19 @@ class _TasksScreenState extends State<TasksScreen> {
             children: [
               CustomHomeHeader(user: user),
               const Divider(thickness: 2, color: Color(0xffC97878)),
-              CustomDateHeader(
-                onAddTaskTap: () async {
+              CustomFilterButtons(
+                selectedFilter: selectedFilter,
+                onFilterChanged: (filter) {
+                  setState(() {
+                    selectedFilter = filter;
+                  });
+                },
+              ),
+              const SizedBox(height: 10),
+              CustomButton(
+                width: double.infinity,
+                text: "+ Add Task",
+                onPressed: () async {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const CreateTask()),
@@ -40,15 +51,6 @@ class _TasksScreenState extends State<TasksScreen> {
                   if (result == true) {
                     setState(() {});
                   }
-                },
-              ),
-              const SizedBox(height: 10),
-              CustomDaysList(
-                selectedDay: selectedDay,
-                onDaySelected: (day) {
-                  setState(() {
-                    selectedDay = day;
-                  });
                 },
               ),
               const SizedBox(height: 10),

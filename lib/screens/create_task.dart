@@ -38,6 +38,31 @@ class _CreateTaskState extends State<CreateTask> {
   final TextEditingController startTimeController = TextEditingController();
   final TextEditingController endTimeController = TextEditingController();
 
+  TimeOfDay? startTime;
+  TimeOfDay? endTime;
+
+  bool _isValidTimeRange() {
+    if (startTime == null || endTime == null) return true;
+
+    final now = DateTime.now();
+    final startDateTime = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      startTime!.hour,
+      startTime!.minute,
+    );
+    final endDateTime = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      endTime!.hour,
+      endTime!.minute,
+    );
+
+    return startDateTime.isBefore(endDateTime);
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -127,8 +152,26 @@ class _CreateTaskState extends State<CreateTask> {
                                   context: context,
                                   initialTime: TimeOfDay.now(),
                                 ).then((valstarttime) {
-                                  startTimeController.text = valstarttime!
-                                      .format(context);
+                                  if (valstarttime != null) {
+                                    setState(() {
+                                      startTime = valstarttime;
+                                      startTimeController.text = valstarttime
+                                          .format(context);
+                                    });
+
+                                    if (!_isValidTimeRange()) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                            'Start time must be before end time',
+                                          ),
+                                          backgroundColor: Colors.red,
+                                        ),
+                                      );
+                                    }
+                                  }
                                 });
                               },
                               hintText: 'Start Time',
@@ -156,9 +199,30 @@ class _CreateTaskState extends State<CreateTask> {
                                   context: context,
                                   initialTime: TimeOfDay.now(),
                                 ).then((valendtime) {
-                                  endTimeController.text = valendtime!.format(
-                                    context,
-                                  );
+                                  if (valendtime != null) {
+                                    setState(() {
+                                      endTime = valendtime;
+                                      endTimeController.text = valendtime
+                                          .format(context);
+                                    });
+
+                                    if (!_isValidTimeRange()) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                            'End time must be after start time',
+                                          ),
+                                          backgroundColor: Colors.red,
+                                        ),
+                                      );
+                                      setState(() {
+                                        endTime = null;
+                                        endTimeController.clear();
+                                      });
+                                    }
+                                  }
                                 });
                               },
 
@@ -189,6 +253,18 @@ class _CreateTaskState extends State<CreateTask> {
                     text: 'Create Task',
                     onPressed: () {
                       if (!formKey.currentState!.validate()) return;
+
+                      if (!_isValidTimeRange()) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Please ensure start time is before end time',
+                            ),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                        return;
+                      }
 
                       Hive.box<TaskModel>('tasks')
                           .add(
