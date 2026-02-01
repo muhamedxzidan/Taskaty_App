@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:taskaty_app/model/task_model.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
@@ -188,18 +189,27 @@ class _CreateTaskState extends State<CreateTask> {
                     text: 'Create Task',
                     onPressed: () {
                       if (!formKey.currentState!.validate()) return;
-                      {
-                        tasksList.add(
-                          TaskModel(
-                            title: titleController.text,
-                            description: descriptionController.text,
-                            date: dateController.text,
-                            time: startTimeController.text,
-                            color: selectedColor,
-                          ),
-                        );
-                        Navigator.pop(context, true);
-                      }
+
+                      Hive.box<TaskModel>('tasks')
+                          .add(
+                            TaskModel(
+                              title: titleController.text,
+                              description: descriptionController.text,
+                              date: dateController.text,
+                              time: startTimeController.text,
+                              color: selectedColor,
+                            ),
+                          )
+                          .then((success) {
+                            Navigator.pop(context, true);
+                          })
+                          .catchError((error) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Failed to create task'),
+                              ),
+                            );
+                          });
                     },
                   ),
                 ],

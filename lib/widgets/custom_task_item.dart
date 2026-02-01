@@ -16,6 +16,7 @@ class CustomTaskItem extends StatelessWidget {
         Alignment.centerLeft,
         const Color(0xfff44336),
         Icons.delete,
+        
       ),
 
       secondaryBackground: _buildDismissBackground(
@@ -24,6 +25,7 @@ class CustomTaskItem extends StatelessWidget {
         Icons.check,
       ),
       onDismissed: (direction) => onDismissed?.call(),
+      
       child: Container(
         height: 120,
         width: double.infinity,

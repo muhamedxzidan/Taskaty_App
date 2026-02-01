@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:taskaty_app/model/task_model.dart';
+import 'package:taskaty_app/model/user_model.dart';
 import 'package:taskaty_app/screens/create_task.dart';
 import 'package:taskaty_app/widgets/custom_date_header.dart';
 import 'package:taskaty_app/widgets/custom_days_list.dart';
@@ -17,6 +19,7 @@ class TasksScreen extends StatefulWidget {
 
 class _TasksScreenState extends State<TasksScreen> {
   String selectedDay = "saturday";
+  UserModel user = Hive.box<UserModel>('user').getAt(0)!;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,7 @@ class _TasksScreenState extends State<TasksScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const CustomHomeHeader(),
+              CustomHomeHeader(user: user),
               const Divider(thickness: 2, color: Color(0xffC97878)),
               CustomDateHeader(
                 onAddTaskTap: () async {
@@ -49,7 +52,9 @@ class _TasksScreenState extends State<TasksScreen> {
                 },
               ),
               const SizedBox(height: 10),
-              CustomTasksList(tasks: tasksList),
+              CustomTasksList(
+                tasks: Hive.box<TaskModel>('tasks').values.toList(),
+              ),
             ],
           ),
         ),

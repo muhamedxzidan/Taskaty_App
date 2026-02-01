@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:taskaty_app/model/user_model.dart';
 import 'package:taskaty_app/screens/tasks_screen.dart';
 import 'package:taskaty_app/widgets/custom_button.dart';
 import 'package:taskaty_app/widgets/custom_text_form_field.dart';
@@ -115,12 +117,24 @@ class _AuthScreenState extends State<AuthScreen> {
                             onPressed: () {
                               if (!register.currentState!.validate()) return;
 
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => TasksScreen(),
-                                ),
-                              );
+                              Hive.box<UserModel>('user')
+                                  .add(
+                                    UserModel(
+                                      name: regUserControl.text,
+                                      image: image?.path,
+                                    ),
+                                  )
+                                  .then((success) {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => TasksScreen(),
+                                      ),
+                                    );
+                                  })
+                                  .catchError((error) {
+                                    showAboutDialog(context: context);
+                                  });
                             },
                           ),
                         ),

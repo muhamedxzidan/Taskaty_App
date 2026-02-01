@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-class TaskModel {
+part 'task_model.g.dart';
+
+@HiveType(typeId: 1)
+class TaskModel extends HiveObject {
+  // extand beco save in hive
+  @HiveField(0)
   final String title;
+  @HiveField(1)
   final String description;
+  @HiveField(2)
   final String date;
+  @HiveField(3)
   final String time;
-  final Color color;
+  @HiveField(4)
+  final int colorValue;
 
   TaskModel({
     required this.title,
     required this.description,
     required this.date,
     required this.time,
-    required this.color,
-  });
-}
+    required Color color,
+  }) : colorValue = color.toARGB32();
 
-List<TaskModel> tasksList = [];
+  Color get color => Color(colorValue);
+}
