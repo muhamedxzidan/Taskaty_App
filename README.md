@@ -24,17 +24,21 @@ Taskaty is more than just a list; it's a personalized space to manage your daily
 
 ---
 
-## 📸 Demo![WhatsApp Image 2026-02-02 at 2 34 19 AM](https://github.com/user-attachments/assets/d4649e07-5859-40d5-a0ce-c0d7aca34526)
-![WhatsApp Image 2026-02-02 at 2 34 19 AM (1)](https://github.com/user-attachments/assets/ddb3f45b-20fa-4b7c-80e6-9d791b2d0433)
-![WhatsApp Image 2026-02-02 at 2 34 19 AM (2)](https://github.com/user-attachments/assets/fa53b733-aa03-4539-b3ad-3086439fb518)
+## 📸 Demo
 
-<p align="center">![WhatsApp Image 2026-02-02 at 2 34 17 AM](https://github.com/user-attachments/assets/3efdb1c6-0ca6-431d-835c-d09f39a10718)
-![WhatsApp Image 2026-02-02 at 2 34 18 AM](https://github.com/user-attachments/assets/bc340001-61f7-4c01-904c-9b086e038a4e)
-![WhatsApp Image 2026-02-02 at 2 34 20 AM](https://github.com/user-attachments/assets/f0907399-7d01-4367-91d1-76b7c2f68cbd)
-![WhatsApp Image 2026-02-02 at 2 34 20 AM (1)](https://github.com/user-attachments/assets/38b27bed-45b1-42c6-a9c2-c0d359b52fd6)
-
- 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3efdb1c6-0ca6-431d-835c-d09f39a10718" width="200" alt="Splash Screen">
+  <img src="https://github.com/user-attachments/assets/bc340001-61f7-4c01-904c-9b086e038a4e" width="200" alt="Onboarding Empty">
+  <img src="https://github.com/user-attachments/assets/f0907399-7d01-4367-91d1-76b7c2f68cbd" width="200" alt="Onboarding Full">
+  <img src="https://github.com/user-attachments/assets/38b27bed-45b1-42c6-a9c2-c0d359b52fd6" width="200" alt="Home Empty">
 </p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d4649e07-5859-40d5-a0ce-c0d7aca34526" width="200" alt="Home Tasks">
+  <img src="https://github.com/user-attachments/assets/ddb3f45b-20fa-4b7c-80e6-9d791b2d0433" width="200" alt="Create Task Color">
+  <img src="https://github.com/user-attachments/assets/fa53b733-aa03-4539-b3ad-3086439fb518" width="200" alt="Create Task Input">
+</p>
+
 
 ---
 
