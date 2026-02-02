@@ -1,131 +1,112 @@
 # Taskaty 📝
+**Your Professional Task Management Companion**
 
-[![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=flat&logo=Flutter&logoColor=white)](https://flutter.dev/)
-[![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=flat&logo=dart&logoColor=white)](https://dart.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-**Taskaty** is a sleek, modern, and intuitive task management application built with Flutter. Designed for simplicity and productivity, Taskaty helps you organize your daily life with ease, featuring a vibrant UI and smooth user experience.
+Taskaty is a clean, efficient, and user-friendly task management application built with Flutter. Designed to help users stay organized, it combines a premium UI with a robust offline-first experience, ensuring your productivity never stops.
 
 ---
 
-## 🚀 Features
-
-- **Personalized Onboarding**: Set up your profile with a custom name and avatar (Gallery/Camera support).
-- **Comprehensive Task Creation**: Add tasks with detailed descriptions, dates, and specific timings.
-- **Visual Categorization**: Color-code your tasks to distinguish between different priorities or categories.
-- **Interactive Calendar View**: Quickly navigate through days using the horizontal date picker.
-- **Rich Animations**: Experience a fluid interface powered by Lottie animations.
-- **Clean & Modern UI**: A minimalist design focus that keeps your productivity at the center.
+## 🌟 Overview
+Taskaty is more than just a list; it's a personalized space to manage your daily objectives. Whether you're a student, professional, or hobbyist, Taskaty provides the tools to categorize, track, and complete tasks with ease.
 
 ---
 
-## 📸 Screenshots & Demo
+## ✨ Features
+- **👤 Personalized Onboarding:** Custom profile setup including name and profile picture selection (via Camera or Gallery).
+- **📝 Task Management:** Create comprehensive tasks with titles, notes, specific dates, and times.
+- **🎨 Color Categorization:** Organize tasks using a curated color palette for easy visual identification.
+- **🔄 Interaction & Gestures:** 
+    - **Swipe Right:** Mark tasks as completed instantly.
+    - **Swipe Left:** Delete unwanted tasks with ease.
+- **🔍 Dynamic Filtering:** Focus on what matters by filtering tasks into **All**, **Todo**, or **Completed**.
+- **💾 Persistent Storage:** High-performance local data storage using **Hive (NoSQL)**, ensuring your data is always available offline.
+- **✨ Visual Engagement:** Smooth Lottie animations and a modern "Glassmorphism" influenced design.
+- **📱 Responsive UI:** Completely responsive layout that adapts beautifully across various mobile devices.
 
-| Splash Screen | Registration | Task Dashboard | Create Task |
-| :---: | :---: | :---: | :---: |
-| ![Splash](https://github.com/user-attachments/assets/4444a0b4-36a7-47f5-8598-dcfc4350aa99) | ![Auth](https://github.com/user-attachments/assets/dcb968d3-7a5f-4cd1-8043-844659c3269f) | ![Dashboard](https://github.com/user-attachments/assets/e7a33f8a-cf0a-4e4b-828f-920c422d3420) | ![Create](https://github.com/user-attachments/assets/5cda1f18-bee5-447e-a2ea-43d1aaaf16c4) |
+---
 
+## 📸 Demo
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/79fe2672-06b9-47f6-8594-c3c10b233861" width="30%" alt="Taskaty UI 1" />
-  <img src="https://github.com/user-attachments/assets/acd5d7e3-bba0-4adb-a7b0-456bd1a7cbe5" width="30%" alt="Taskaty UI 2" />
+  <img src="https://raw.githubusercontent.com/muhamedxzidan/Taskaty_App/main/screenshots/splash.jpg" width="200" alt="Splash Screen">
+  <img src="https://raw.githubusercontent.com/muhamedxzidan/Taskaty_App/main/screenshots/onboarding.jpg" width="200" alt="Onboarding">
+  <img src="https://raw.githubusercontent.com/muhamedxzidan/Taskaty_App/main/screenshots/home.jpg" width="200" alt="Home Screen">
+  <img src="https://raw.githubusercontent.com/muhamedxzidan/Taskaty_App/main/screenshots/empty.jpg" width="200" alt="Empty State">
 </p>
 
 ---
 
-## 🛠️ Tech Stack
-
-- **Framework**: [Flutter](https://flutter.dev/) (SDK ^3.10.1)
-- **Language**: [Dart](https://dart.dev/)
-- **Animations**: [Lottie](https://pub.dev/packages/lottie)
-- **Date Formatting**: [Intl](https://pub.dev/packages/intl)
-- **Media Access**: [Image Picker](https://pub.dev/packages/image_picker)
-- **Icons**: [Cupertino Icons](https://pub.dev/packages/cupertino_icons)
-
----
-
-## 🏗️ Architecture & Folder Structure
-
-Taskaty follows a clean layered architecture to ensure maintainability and scalability:
-
-```text
-lib/
-├── model/          # Data models and static business logic
-│   └── task_model.dart
-├── screens/        # Main UI screens (Splash, Auth, Dashboard, Create Task)
-│   ├── auth_screen.dart
-│   ├── create_task.dart
-│   ├── splash_screen.dart
-│   └── tasks_screen.dart
-├── widgets/        # Reusable UI components and custom design elements
-│   ├── custom_button.dart
-│   ├── custom_task_item.dart
-│   └── ...
-├── main.dart       # Entry point
-└── taskaty_app.dart# App configuration and routing
-```
+## 🛠 Tech Stack
+- **Framework:** [Flutter](https://flutter.dev/)
+- **Language:** [Dart](https://dart.dev/)
+- **Database:** [Hive & Hive Flutter](https://docs.hivedb.dev/) (Local Persistence)
+- **State Management:** Separation of concerns using Modular Widgets (StatefulWidget/setState) 
+- **Utilities:**
+    - `image_picker`: For profile image selection.
+    - `lottie`: For high-quality vector animations.
+    - `intl`: For date and time formatting.
+    - `hive_generator`: For efficient data model adaptation.
 
 ---
 
-## ⚙️ Installation & Setup
+## 🏗 Architecture & Design
+Taskaty follows **Clean Code** and **SOLID** principles to ensure maintainability:
+- **Presentation Layer:** Highly reusable and granular widgets located in `lib/widgets`.
+- **Data Layer:** Isolated data models and local storage management using Hive TypeAdapters.
+- **Design System:** Consistent use of custom themes, colors, and typography to maintain a premium feel.
+
+---
+
+## 🚀 Installation & Setup
 
 ### Prerequisites
-
-- [Flutter SDK](https://docs.flutter.dev/get-started/install) installed on your machine.
-- An IDE (VS Code or Android Studio) with Flutter/Dart extensions.
-- An emulator or physical device for testing.
+- Flutter SDK (v3.10.1 or higher)
+- Android Studio / VS Code
+- Git
 
 ### Steps
-
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/muhamedxzidan/Taskaty_App.git
+   ```
+2. **Navigate to the project directory:**
+   ```bash
    cd taskaty_app
    ```
-
-2. **Install dependencies:**
+3. **Install dependencies:**
    ```bash
    flutter pub get
    ```
-
-3. **Run the application:**
+4. **Generate Hive adapters:**
+   ```bash
+   flutter pub run build_runner build --delete-conflicting-outputs
+   ```
+5. **Run the app:**
    ```bash
    flutter run
    ```
 
 ---
 
-## 📱 Usage Guide
-
-1. **Get Started**: Launch the app and enter your name. Upload a profile picture using your camera or gallery.
-2. **Dashboard**: View your tasks for the current day. Use the top horizontal list to switch between days.
-3. **Add Task**: Click the create button to add a new task. Choose a unique color, set the time, and write a summary.
-4. **Manage**: Keep track of your schedule and stay productive!
+## 📁 Project Structure
+```text
+lib/
+├── model/           # Data models and Hive adapters
+├── screens/         # Main application screens (Auth, Tasks, Create)
+├── widgets/         # Reusable UI components
+├── taskaty_app.dart # Main App configuration
+└── main.dart        # App entry point & database initialization
+```
 
 ---
 
 ## 🤝 Contribution
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Contributions are welcome! If you'd like to improve Taskaty, feel free to fork the repo and submit a PR or open an issue.
 
 ---
 
-## 👤 Author
-
-**Muhamed Zidan**
-- GitHub: [@muhamedxzidan](https://github.com/muhamedxzidan)
-- LinkedIn: [Muhamed Zidan](https://www.linkedin.com/in/muhamed-zidan/)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the `LICENSE` file for details.
+## 📩 Contact
+**Author:** Muhamed Zidan  
+**GitHub:** [@muhamedxzidan](https://github.com/muhamedxzidan)  
+**Project Link:** [Taskaty App](https://github.com/muhamedxzidan/Taskaty_App)
 
 ---
-<p align="center">Made with ❤️ and Flutter</p>
+<p align="center">Made with ❤️ for a more organized world.</p>
