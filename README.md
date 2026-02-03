@@ -26,6 +26,7 @@ Taskaty is more than just a list; it's a personalized space to manage your daily
 
 ## 📸 Demo
 
+### 🎬 App Flow
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3efdb1c6-0ca6-431d-835c-d09f39a10718" width="200" alt="Splash Screen">
   <img src="https://github.com/user-attachments/assets/bc340001-61f7-4c01-904c-9b086e038a4e" width="200" alt="Onboarding Empty">
@@ -33,6 +34,7 @@ Taskaty is more than just a list; it's a personalized space to manage your daily
   <img src="https://github.com/user-attachments/assets/38b27bed-45b1-42c6-a9c2-c0d359b52fd6" width="200" alt="Home Empty">
 </p>
 
+### 📋 Task Management
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d4649e07-5859-40d5-a0ce-c0d7aca34526" width="200" alt="Home Tasks">
   <img src="https://github.com/user-attachments/assets/ddb3f45b-20fa-4b7c-80e6-9d791b2d0433" width="200" alt="Create Task Color">
@@ -41,6 +43,12 @@ Taskaty is more than just a list; it's a personalized space to manage your daily
 ![fc4218ec-89f9-46a4-8dd5-9b72f02a63be](https://github.com/user-attachments/assets/8924f8b3-04c6-4b9a-97c4-81c670da7418)
 
     
+</p>
+
+### 👤 Profile Management
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/652d4805-1994-4ff1-93a6-4267de5f6c0d" width="200" alt="Profile Screen">
+  <img src="https://github.com/user-attachments/assets/8924f8b3-04c6-4b9a-97c4-81c670da7418" width="200" alt="Edit Profile">
 </p>
 
 
