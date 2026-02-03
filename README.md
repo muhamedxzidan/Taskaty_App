@@ -37,6 +37,10 @@ Taskaty is more than just a list; it's a personalized space to manage your daily
   <img src="https://github.com/user-attachments/assets/d4649e07-5859-40d5-a0ce-c0d7aca34526" width="200" alt="Home Tasks">
   <img src="https://github.com/user-attachments/assets/ddb3f45b-20fa-4b7c-80e6-9d791b2d0433" width="200" alt="Create Task Color">
   <img src="https://github.com/user-attachments/assets/fa53b733-aa03-4539-b3ad-3086439fb518" width="200" alt="Create Task Input">
+![a3677896-cf06-4f30-82aa-71b0bd521ab4](https://github.com/user-attachments/assets/652d4805-1994-4ff1-93a6-4267de5f6c0d)
+![fc4218ec-89f9-46a4-8dd5-9b72f02a63be](https://github.com/user-attachments/assets/8924f8b3-04c6-4b9a-97c4-81c670da7418)
+
+    
 </p>
 
 
