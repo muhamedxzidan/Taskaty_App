@@ -19,17 +19,23 @@ class TasksScreen extends StatefulWidget {
 
 class _TasksScreenState extends State<TasksScreen> {
   String selectedFilter = "all";
-  UserModel user = Hive.box<UserModel>('user').getAt(0)!;
 
   @override
   Widget build(BuildContext context) {
+    final user = Hive.box<UserModel>('user').getAt(0)!;
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              CustomHomeHeader(user: user),
+              CustomHomeHeader(
+                user: user,
+                onProfileUpdate: () {
+                  setState(() {});
+                },
+              ),
               const Divider(thickness: 2, color: Color(0xffC97878)),
               CustomFilterButtons(
                 selectedFilter: selectedFilter,

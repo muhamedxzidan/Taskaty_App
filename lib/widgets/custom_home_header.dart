@@ -2,12 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:taskaty_app/model/user_model.dart';
-import 'package:taskaty_app/screens/auth_screen.dart';
+import 'package:taskaty_app/screens/profile_screen.dart';
 import 'package:taskaty_app/widgets/custom_user_avatar.dart';
 
 class CustomHomeHeader extends StatelessWidget {
-  const CustomHomeHeader({super.key, required this.user});
+  const CustomHomeHeader({super.key, required this.user, this.onProfileUpdate});
   final UserModel user;
+  final VoidCallback? onProfileUpdate;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -45,10 +47,15 @@ class CustomHomeHeader extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AuthScreen()),
-          ),
+          onTap: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProfileScreen(user: user),
+              ),
+            );
+            onProfileUpdate?.call();
+          },
           child: user.image != null
               ? CustomUserAvatar(
                   backgroundImage: FileImage(File(user.image!)),
